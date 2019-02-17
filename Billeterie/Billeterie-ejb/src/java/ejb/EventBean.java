@@ -37,4 +37,8 @@ public class EventBean {
         Event event = (Event)em.createQuery("SELECT e FROM Event e WHERE e.id = :id").setParameter("id", id).getSingleResult();
         return event;
     }    
+
+    public void merge(Event e) {
+        em.merge(e);
+    }
 }

@@ -10,6 +10,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class UserClient_ {
 
 	public static volatile SingularAttribute<UserClient, String> firstName;
+	public static volatile SingularAttribute<UserClient, String> password;
 	public static volatile SingularAttribute<UserClient, String> address;
 	public static volatile SingularAttribute<UserClient, Integer> phoneNumber;
 	public static volatile CollectionAttribute<UserClient, Event> reservations;

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"> 
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Inscription</title>
+    </h:head>
+    <h:body>
+      <h:form>
+         <fieldset>
+         	<legend>Inscription</legend>
+	     	<h:outputLabel for="name">Nom <span class="requis">*</span></h:outputLabel>
+	        <h:inputText id="name" value="#{inscriptionBean.utilisateur.name}" required="true" size="20" maxlength="60" />
+	        <h:message id="nomMessage" for="name" errorClass="erreur" />
+	        <br />
+	
+	        <h:outputLabel for="motdepasse">Mot de passe <span class="requis">*</span></h:outputLabel>
+	        <h:inputSecret id="motdepasse" value="#{inscriptionBean.utilisateur.password}" required="true" size="20" maxlength="20" />
+	        <h:message id="motDePasseMessage" for="motdepasse" errorClass="erreur" />
+	        <br />
+	
+	        <h:outputLabel for="confirmation">Confirmation du mot de passe <span class="requis">*</span></h:outputLabel>
+	        <h:inputSecret id="confirmation" value="#{inscriptionBean.utilisateur.password}" required="true" size="20" maxlength="20" />
+	        <h:message id="confirmationMessage" for="confirmation" errorClass="erreur" />
+	        <br />
+	
+	        
+	        <h:messages globalOnly="true" infoClass="info" />
+	
+	        <h:commandButton value="Inscription" action="#{inscriptionBean.inscrire}" styleClass="sansLabel" />
+	        <br />
+          </fieldset>
+        </h:form> 	
+    </h:body>
+</html>

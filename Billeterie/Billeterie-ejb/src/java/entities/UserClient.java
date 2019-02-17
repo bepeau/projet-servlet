@@ -59,6 +59,17 @@ public class UserClient implements Serializable {
         this.firstName = firstName;
     }
     
+    @Column(name = "PWD")
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     @Column(name = "ADDRESS")
     private String address;
 

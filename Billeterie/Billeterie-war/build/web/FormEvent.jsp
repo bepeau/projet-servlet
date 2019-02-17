@@ -4,6 +4,7 @@
     Author     : bepereiraa
 --%>
 
+<%@page import="entities.Event"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%--
@@ -60,11 +61,31 @@
 
 <body>
   <%@include file = "navbar.html" %>
+   <% Event event = (Event) request.getAttribute("event"); %>
     
   <div class="py-5 text-center">
     <div class="container">
       <div class="row">
         <div class="mx-auto col-lg-6 col-10">
+          
+          
+          <% if(event != null) {
+            %>
+            <h1>Mettre à jour evenement</h1>
+            <form class="text-left" method="post" action="UpdateEvent">
+            <div class="form-group"> <label for="id">Id</label> <input type="text" class="form-control" id="id" name="id" value="<%= event.getId() %>" > </div>
+            <div class="form-group"> <label for="address">Adresse</label> <input type="text" class="form-control" id="address" name="address" value="<%= event.getAddress()%>"> </div>
+            <div class="form-group"> <label for="price">Prix</label> <input type="number" class="form-control" id="price" name="price" value="<%= event.getPrice()%>"> </div>
+            <div class="form-group"> <label for="detail">Detail</label> <input type="text" class="form-control" id="detail" name="detail" value="<%= event.getDetail()%>">
+                <div class="form-group"><label for="date">Date</label><input type="date" class="form-control" id="date" name="date" value="<%= event.getDate()%>"></div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+          </form>
+            <%
+          }
+            else {
+          %>
           <h1>Ceer evenement</h1>
           <form class="text-left" method="post" action="createEvent">
             <div class="form-group"> <label for="id">Id</label> <input type="text" class="form-control" id="id" name="id" placeholder="01"> </div>
@@ -76,6 +97,10 @@
             
             <button type="submit" class="btn btn-primary">Creer</button>
           </form>
+          <%
+          }
+          %>
+          
         </div>
       </div>
     </div>
